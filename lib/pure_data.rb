@@ -7,6 +7,7 @@
 
 require 'socket'
 require 'yaml'
+require "#{File.dirname(__FILE__)}/note"
 
 class PureData
 
@@ -113,9 +114,10 @@ class PureData
   # Sends a general note message to a pd connection
   #
   def send_note(connection_index, note, length)
+    note = Note.get_midi_number(note)
     command = "note #{note} #{length}"
     puts "#{connection_index}: #{command}"
-    connections[connection_index.to_i].puts command 
+    connections[connection_index.to_i].puts "#{command};"
   end
 
 end
