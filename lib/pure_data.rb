@@ -40,9 +40,9 @@ class PureData
   # This should handle the lack of a config file, the patch being closed and an invalid hostname and/or port
   #
   def initialize
-    connections = []
+    self.connections = []
     begin
-      config = YAML.load_file("#{File.dirname(__FILE__)}../config/config.yml")
+      config = YAML.load_file("#{File.dirname(__FILE__)}/../config/config.yml")
       connection_configs = config['connections']
     rescue
       puts "config.yml not found, please copy it from the template and modify as required. (`cp config/config.yml.template config/config.yml`)"
@@ -52,10 +52,10 @@ class PureData
       hostname = connection['hostname']
       port = connection['port']
       begin
-        self.connections << TCPSocket.open hostname, port
+        self.connections << TCPSocket.open(hostname, port)
         puts "Connection established on #{hostname}:#{port}"
       rescue Errno::ECONNREFUSED
-        puts "Connection refused! Please ensure ruby_interact.pd is running in puredata and listening on #{hostname}:#{port}"
+        puts "Connection refused! Please ensure single.pd or quartet.pd is running in puredata and listening on #{hostname}:#{port}"
         abort
       rescue SocketError
         puts "Hostname and port are invalid. Please make sure they're a valid ip address and port number."
@@ -72,7 +72,9 @@ class PureData
     error = false
     command_parts = command.split(' ')
     command_name = command_parts[0]
-    if PureData::ATTRIBUTES.include?(command_name)
+    if self.connections.count >= connection_index.to_i
+      error = "Index: #{connection_index} is invalid, there are #{self.connections.count} connections."
+    elsif PureData::ATTRIBUTES.include?(command_name)
 
       if command_parts.count == 2 
         command = "attribute #{command_name} #{command_parts[1].to_i}"
@@ -83,7 +85,7 @@ class PureData
     elsif PureData::BOOLEANS.include?(command_name)
 
       if command_parts.count == 2 and ['on','off'].include?(command_parts[1])
-        command = "boolean #{command_name} #{command_parts == 'on' ? 1 : 0}"
+        command = "boolean #{command_name} #{command_parts[1] == 'on' ? 1 : 0}"
       else
         error = "Not a valid boolean command, should be the name, then 'on' or 'off'."
       end
@@ -103,7 +105,7 @@ class PureData
       puts "ERROR on command \"#{command}\": #{error}"
     else
       puts "#{connection_index}: #{command}"
-      connections[connection_index].puts command
+      connections[connection_index.to_i].puts "#{command};"
     end
   end
 
@@ -113,7 +115,7 @@ class PureData
   def send_note(connection_index, note, length)
     command = "note #{note} #{length}"
     puts "#{connection_index}: #{command}"
-    connections[connection_index].puts command 
+    connections[connection_index.to_i].puts command 
   end
 
 end
