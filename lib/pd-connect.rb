@@ -6,14 +6,34 @@
 #
 
 require 'socket'
-require './lib/character'
 require 'yaml'
 
 class PureData
 
+  # allowed commands, see COMMAND_REFERENCE.md for more details
+
+  ATTRIBUTES = [
+    'volume', 
+    'portamento_time',
+    'attack_time',
+    'decay_time',
+    'sustain_level',
+    'release_time'
+  ]
+
+  BOOLEANS = [
+    'portamento',
+    'noise'
+  ]
+
+  EVENTS = [
+    'kick',
+    'snare',
+    'hat',
+    'beep'
+  ]
+
   attr_accessor :connections
-  attr_accessor :hostname
-  attr_accessor :port
 
   # 
   # Initializing an instance of PureData will set up a connection(TCPSocket) to the pure data patch. 
@@ -46,13 +66,54 @@ class PureData
 
 
   #
-  # Accepts a string and separates it into it's individual characters and a speed (actually a rest time in seconds)
-  # Outputs characters to the console one by one (typewriter effect)
-  # Outputs suitable commands to the pure data patch
+  # Generically send a command to pure data
   # 
-  def send_command(command)
-    puts command
-    connection.puts command
+  def send_command(connection_index, command)
+    error = false
+    command_parts = command.split(' ')
+    command_name = command_parts[0]
+    if PureData::ATTRIBUTES.include?(command_name)
+
+      if command_parts.count == 2 
+        command = "attribute #{command_name} #{command_parts[1].to_i}"
+      else
+        error = "Not a valid attribute command, should be name, then a number."
+      end
+
+    elsif PureData::BOOLEANS.include?(command_name)
+
+      if command_parts.count == 2 and ['on','off'].include?(command_parts[1])
+        command = "boolean #{command_name} #{command_parts == 'on' ? 1 : 0}"
+      else
+        error = "Not a valid boolean command, should be the name, then 'on' or 'off'."
+      end
+
+    elsif PureData::EVENTS.include?(command_name)
+
+      if command_parts.count == 1
+        command = "event #{command}"
+      else
+        error = "Not a valid event command, should simply contain the event name, nothing else."
+      end
+
+    else
+      error = "UNKNOWN COMMAND"
+    end
+    if error
+      puts "ERROR on command \"#{command}\": #{error}"
+    else
+      puts "#{connection_index}: #{command}"
+      connections[connection_index].puts command
+    end
+  end
+
+  #
+  # Sends a general note message to a pd connection
+  #
+  def send_note(connection_index, note, length)
+    command = "note #{note} #{length}"
+    puts "#{connection_index}: #{command}"
+    connections[connection_index].puts command 
   end
 
 end
