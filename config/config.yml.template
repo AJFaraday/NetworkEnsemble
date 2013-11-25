@@ -1,1 +1,14 @@
---- 
+# 
+# Connections
+#
+# IP addresses and port numbers for pure data connections on a network
+#
+connections: 
+  - hostname: '192.168.0.1'
+    port: 3001
+  - hostname: '192.168.0.1'
+    port: 3002
+  - hostname: '192.168.0.1'
+    port: 3003
+  - hostname: '192.168.0.1'
+    port: 3004
