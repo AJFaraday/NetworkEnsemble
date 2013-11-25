@@ -1,6 +1,14 @@
 #N canvas 0 0 875 464 10;
 #X obj 19 26 netreceive \$1;
 #X floatatom 96 56 5 0 0 0 - - -;
-#X obj 19 60 print \$1;
+#X obj 19 88 route note attribute boolean event;
+#X obj 19 184 print note_\$1;
+#X obj 69 163 print attribute_\$1;
+#X obj 119 142 print boolean_\$1;
+#X obj 169 120 print event_\$1;
 #X connect 0 0 2 0;
 #X connect 0 1 1 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 2 3 6 0;

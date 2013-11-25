@@ -72,7 +72,7 @@ class PureData
     error = false
     command_parts = command.split(' ')
     command_name = command_parts[0]
-    if self.connections.count >= connection_index.to_i
+    if self.connections.count <= connection_index.to_i
       error = "Index: #{connection_index} is invalid, there are #{self.connections.count} connections."
     elsif PureData::ATTRIBUTES.include?(command_name)
 
