@@ -1,4 +1,6 @@
 #
+# November 2013 - Andrew Faraday
+#
 # Converts a note name to a midi number
 #
 # A note name
