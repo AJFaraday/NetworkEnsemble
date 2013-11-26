@@ -71,9 +71,9 @@ class Player
   #
   #
   #
-  def play
-    self.sequence.each_with_index do |row, index|
-      puts "#{index}: #{row.join(' , ')}"
+  def play(first_index=0)
+    self.sequence[first_index..-1].each_with_index do |row, index|
+      puts "#{index + first_index}: #{row.compact.join(' , ')}"
     end
   end
 
@@ -82,10 +82,11 @@ class Player
   # 
   def play_row(index)
     row = self.sequence[index]
-    master_commands(row[master_column].split(';'))
+    master_commands(row[master_column])
   end
 
   def master_commands(commands)
+    commands = commands.split(';')
     if commands.any?
       commands.each do |command|
         command, value = command.split(' ')
@@ -111,18 +112,18 @@ class Player
       throw Error, "To set step time there must be a time signature, bpm and note resolution."
     end
     if self.compound_time?
-      beat_milliseconds = MINUTE_MILLISEONDS / bpm
+      beat_milliseconds = MINUTE_MILLISECONDS / bpm.to_f
       rows_per_beat = self.resolution.to_f / self.pulse_resolution.to_f
       self.step_time = (beat_milliseconds.to_f / (rows_per_beat * 3)) 
     else # simple time
-      beat_milliseconds = MINUTE_MILLISEONDS / bpm 
+      beat_milliseconds = MINUTE_MILLISECONDS / bpm.to_f 
       rows_per_beat = self.resolution.to_f / self.pulse_resolution.to_f
       self.step_time = beat_milliseconds.to_f / rows_per_beat 
     end
   end  
 
   def compound_time?
-    self.pulse_count / 3 == self.pulse_count.to_f / 3.0
+    self.pulse_count.to_i / 3 == self.pulse_count.to_f / 3.0
   end
 
 end
