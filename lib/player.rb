@@ -10,6 +10,8 @@ class Player
   attr_accessor :file
   # parsed CSV data from file
   attr_accessor :sequence
+  # an array of mappings for each row of the CSV file
+  attr_accessor :mappings
   # the top half of the time signature
   # the number you'd count to before returning to one
   attr_accessor :pulse_count
@@ -20,8 +22,12 @@ class Player
   attr_accessor :resolution 
   # the amount of time in milliseconds each row of the CSV file takes
   attr_accessor :step_time
+ 
+
 
   def initialize(file_path)
+    
+
 
   end
 
