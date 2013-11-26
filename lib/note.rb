@@ -40,7 +40,7 @@ class Note
       puts "#{note_name} is not a valid note, the last character must be a valid octave number (in #{OCTAVES.inspect})"
     else
       # note name
-      n = NOTE_NAMES[parts[0]]
+      n = NOTE_NAMES[parts[0].upcase]
       # accidental (# or b)
       if ['#','b'].include?(parts[1])
         n += parts.delete_at(1) == '#' ? 1 : -1
