@@ -38,6 +38,8 @@ class Player
 
   MASTER_COMMANDS = ['bpm', 'time','resolution']
 
+  MINUTE_MILLISECONDS = 60000
+
   #
   # Initial file reading and setting of values.
   #
@@ -84,29 +86,38 @@ class Player
   end
 
   def master_commands(commands)
-    commands.each do |command|
-      command, value = command.split(' ')
-      if command and value and MASTER_COMMANDS.include?(command)
-        case command
-         when 'time'
-           self.pulse_count, self.pulse_resolution = value.split('/')
-         when 'bpm'
-           self.bpm = value
-         when 'resolution'
-           self.resolution = value
-        end
-      else 
-        throw Error, "master commands must contain both a valid name (#{MASTER_COMMANDS.inspect}) and a value"
-      end   
+    if commands.any?
+      commands.each do |command|
+        command, value = command.split(' ')
+        if command and value and MASTER_COMMANDS.include?(command)
+          case command
+           when 'time'
+             self.pulse_count, self.pulse_resolution = value.split('/')
+           when 'bpm'
+             self.bpm = value
+           when 'resolution'
+             self.resolution = value
+          end
+        else 
+          throw Error, "master commands must contain both a valid name (#{MASTER_COMMANDS.inspect}) and a value"
+        end   
+      end
+      set_step_time
     end
-    set_step_time
   end
 
   def set_step_time
+    unless self.pulse_count and self.pulse_resolution and self.bpm and self.resolution
+      throw Error, "To set step time there must be a time signature, bpm and note resolution."
+    end
     if self.compound_time?
-      
+      beat_milliseconds = MINUTE_MILLISEONDS / bpm
+      rows_per_beat = self.resolution.to_f / self.pulse_resolution.to_f
+      self.step_time = (beat_milliseconds.to_f / (rows_per_beat * 3)) 
     else # simple time
-      
+      beat_milliseconds = MINUTE_MILLISEONDS / bpm 
+      rows_per_beat = self.resolution.to_f / self.pulse_resolution.to_f
+      self.step_time = beat_milliseconds.to_f / rows_per_beat 
     end
   end  
 
