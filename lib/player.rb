@@ -74,7 +74,9 @@ class Player
   def play(first_index=0)
     self.sequence[first_index..-1].each_with_index do |row, index|
       puts "#{index + first_index}: #{row.compact.join(' , ')}"
+      play_row(index)
     end
+    return nil
   end
 
   #
@@ -83,27 +85,38 @@ class Player
   def play_row(index)
     row = self.sequence[index]
     master_commands(row[master_column])
+    note_columns.each_with_index do |column,index|
+      note = row[column]
+      if note and !note.empty?
+        note, length = note.split(' ')
+        length = length.to_i * step_time
+        pure_data.send_note(index,note,length)
+      end
+    end
+    sleep step_time / 1000.0
   end
 
   def master_commands(commands)
-    commands = commands.split(';')
-    if commands.any?
-      commands.each do |command|
-        command, value = command.split(' ')
-        if command and value and MASTER_COMMANDS.include?(command)
-          case command
-           when 'time'
-             self.pulse_count, self.pulse_resolution = value.split('/')
-           when 'bpm'
-             self.bpm = value
-           when 'resolution'
-             self.resolution = value
-          end
-        else 
-          throw Error, "master commands must contain both a valid name (#{MASTER_COMMANDS.inspect}) and a value"
-        end   
+    if commands and !commands.empty?
+      commands = commands.split(';')
+      if commands.any?
+        commands.each do |command|
+          command, value = command.split(' ')
+          if command and value and MASTER_COMMANDS.include?(command)
+            case command.downcase
+             when 'time'
+               self.pulse_count, self.pulse_resolution = value.split('/')
+             when 'bpm'
+               self.bpm = value
+             when 'resolution'
+               self.resolution = value
+            end
+          else 
+            throw Error, "master commands must contain both a valid name (#{MASTER_COMMANDS.inspect}) and a value"
+          end   
+        end
+        set_step_time
       end
-      set_step_time
     end
   end
 
