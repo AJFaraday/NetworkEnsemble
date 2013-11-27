@@ -65,6 +65,11 @@ class PureData
     end
   end
 
+  # sends 'loadbang' signal to puredata to restore defaults
+  def send_loadbang
+    puts "sending loadbang"
+    self.connections.each{|x|x.puts "loadbang 1;"}
+  end
 
   #
   # Generically send a command to pure data

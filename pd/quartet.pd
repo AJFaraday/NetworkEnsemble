@@ -3,3 +3,9 @@
 #X obj 22 87 voice 3004;
 #X obj 22 47 voice 3002;
 #X obj 22 67 voice 3003;
+#X obj 270 29 loadbang;
+#X obj 270 50 delay 100;
+#X msg 270 71 \; pd dsp 1;
+#X text 273 13 assure audio computation;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;

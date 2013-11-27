@@ -80,6 +80,7 @@ class Player
   # play the sequence from a given row index.
   #
   def play(first_index=0)
+    self.pure_data.send_loadbang # reset to defaults
     if self.closed 
       puts "Player has been closed and will not now play."
     else
