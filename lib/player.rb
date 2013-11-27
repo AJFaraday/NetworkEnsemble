@@ -72,8 +72,8 @@ class Player
   def generate_mappings
     self.note_columns = (1..self.no_parts).to_a
     self.master_column = self.note_columns.max + 1
-    self.command_columns = ((self.master_column + 1)..(self.master_column + 1 + self.no_parts)).to_a
-    self.event_columns = ((self.command_columns.max + 1)..(self.command_columns.max + 1 + self.no_parts)).to_a
+    self.command_columns = ((self.master_column + 1)...(self.master_column + 1 + self.no_parts)).to_a
+    self.event_columns = ((self.command_columns.max + 1)...(self.command_columns.max + 1 + self.no_parts)).to_a
   end
 
   #
