@@ -102,6 +102,10 @@ class Player
       commands = row[column]
       send_commands(index,commands)
     end
+    event_columns.each_with_index do |column, index|
+      events = row[column]
+      send_commands(index,events)
+    end
     note_columns.each_with_index do |column,index|
       note = row[column]
       play_note(index, note)
@@ -139,6 +143,8 @@ class Player
   #
   # parse synthesizer commands and send them to Pure Data
   #
+  # used for both command and event columns
+  #
   def send_commands(index,commands)
     if commands and !commands.empty?
       commands = commands.split(';')
@@ -156,7 +162,8 @@ class Player
       pure_data.send_note(index,note,length)
     end
   end
-
+ 
+ 
   #
   # whenever time attributes (time signature, bpm or resolution_) change, work out step time again
   #
