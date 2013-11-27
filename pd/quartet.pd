@@ -1,5 +1,5 @@
 #N canvas 0 0 450 300 10;
 #X obj 22 27 voice 3001;
+#X obj 22 87 voice 3004;
 #X obj 22 47 voice 3002;
 #X obj 22 67 voice 3003;
-#X obj 22 87 voice 3004;

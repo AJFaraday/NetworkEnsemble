@@ -39,7 +39,7 @@ class Player
   # When it's finished with, tcp sockets are closed, this is flagged
   attr_accessor :closed
 
-  MASTER_COMMANDS = ['bpm', 'time','resolution']
+  MASTER_COMMANDS = ['bpm', 'time','resolution','master_volume']
 
   MINUTE_MILLISECONDS = 60000
 
@@ -118,6 +118,8 @@ class Player
         command, value = command.split(' ')
         if command and value and MASTER_COMMANDS.include?(command)
           case command.downcase
+            when 'master_volume'
+              no_parts.times{|i|send_commands(i, "volume #{value}")}
             when 'time'
               self.pulse_count, self.pulse_resolution = value.split('/')
             when 'bpm'
@@ -172,6 +174,9 @@ class Player
     end
   end  
 
+  #
+  # is it a compound time signature?
+  # 
   def compound_time?
     self.pulse_count.to_i / 3 == self.pulse_count.to_f / 3.0
   end
