@@ -63,9 +63,8 @@ class Player
 
   def close
     self.pure_data.connections.each{|x|x.close}
-    # as suggested in http://stackoverflow.com/questions/4866689/remove-a-class-instance-in-ruby
-    @@instances.delete(self)
-    self.instance_variables.each{|v| self.instance_variable_set(v,nil)}
+    self.sequence = nil
+    self.closed = true
   end
   #
   # generates an array of column mappings as described in CSV_REFERENCE.md
@@ -81,11 +80,15 @@ class Player
   # play the sequence from a given row index.
   #
   def play(first_index=0)
-    self.sequence[first_index..-1].each_with_index do |row, index|
-      puts "#{index + first_index}: #{row.compact.join(' , ')}"
-      play_row(index)
+    if self.closed 
+      puts "Player has been closed and will not now play."
+    else
+      self.sequence[first_index..-1].each_with_index do |row, index|
+        puts "#{index + first_index}: #{row.compact.join(' , ')}"
+        play_row(index)
+      end
+      return nil
     end
-    return nil
   end
 
   #
