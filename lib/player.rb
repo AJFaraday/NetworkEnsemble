@@ -97,13 +97,13 @@ class Player
   def play_row(index)
     row = self.sequence[index]
     master_commands(row[master_column])
+    command_columns.each_with_index do |column, index|
+      commands = row[column]
+      send_commands(index,commands)
+    end
     note_columns.each_with_index do |column,index|
       note = row[column]
-      if note and !note.empty?
-        note, length = note.split(' ')
-        length = length.to_i * step_time
-        pure_data.send_note(index,note,length)
-      end
+      play_note(index, note)
     end
     sleep step_time / 1000.0
   end
@@ -114,27 +114,49 @@ class Player
   def master_commands(commands)
     if commands and !commands.empty?
       commands = commands.split(';')
-      if commands.any?
-        commands.each do |command|
-          command, value = command.split(' ')
-          if command and value and MASTER_COMMANDS.include?(command)
-            case command.downcase
-             when 'time'
-               self.pulse_count, self.pulse_resolution = value.split('/')
-             when 'bpm'
-               self.bpm = value
-             when 'resolution'
-               self.resolution = value
-            end
-          else 
-            throw Error, "master commands must contain both a valid name (#{MASTER_COMMANDS.inspect}) and a value"
-          end   
-        end
-        set_step_time
+      commands.each do |command|
+        command, value = command.split(' ')
+        if command and value and MASTER_COMMANDS.include?(command)
+          case command.downcase
+            when 'time'
+              self.pulse_count, self.pulse_resolution = value.split('/')
+            when 'bpm'
+              self.bpm = value
+            when 'resolution'
+              self.resolution = value
+          end
+        else 
+          throw Error, "master commands must contain both a valid name (#{MASTER_COMMANDS.inspect}) and a value"
+        end   
       end
+      set_step_time
     end
   end
 
+  #
+  # parse synthesizer commands and send them to Pure Data
+  #
+  def send_commands(index,commands)
+    if commands and !commands.empty?
+      commands = commands.split(';')
+      commands.each{|command| pure_data.send_command(index, command.downcase)}
+    end
+  end
+
+  #
+  # parse a note string, and send it to pd
+  #
+  def play_note(index, note)
+    if note and !note.empty?
+      note, length = note.split(' ')
+      length = length.to_i * step_time
+      pure_data.send_note(index,note,length)
+    end
+  end
+
+  #
+  # whenever time attributes (time signature, bpm or resolution_) change, work out step time again
+  #
   def set_step_time
     unless self.pulse_count and self.pulse_resolution and self.bpm and self.resolution
       throw Error, "To set step time there must be a time signature, bpm and note resolution."
