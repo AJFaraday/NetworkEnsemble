@@ -36,6 +36,7 @@ Available master data values:
 * time - Time signature, separated with a forward slash (/), e.g.: 4/4, 6/8, 3/4 (multiples of 3 on the top are assumed to be compound time, otherwise, simple)
 * resolution - The note value from one row to the next (e.g. 4 (crotchet), 8 (quaver), 16 (semiquaver))
 * bpm - the number of beats in a minute (compound time: 3 of the bottom line, simple time: 1 of bottom line) 
+* master_volume - a secondary volume level for all synths at the same time
 
 Command columns are instructions to the synthesizers, they consist of a name, then a value. The value is either 'on' or 'off' or a number from 0 to 100. For a full reference of commands look at COMMAND_REFERENCE.md (listed there as attributes and booleans).
 
