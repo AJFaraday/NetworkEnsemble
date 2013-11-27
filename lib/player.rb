@@ -36,6 +36,9 @@ class Player
   # next row to play 
   attr_accessor :next_row
 
+  # When it's finished with, tcp sockets are closed, this is flagged
+  attr_accessor :closed
+
   MASTER_COMMANDS = ['bpm', 'time','resolution']
 
   MINUTE_MILLISECONDS = 60000
@@ -58,6 +61,12 @@ class Player
     master_commands(self.sequence[0][master_column])
   end
 
+  def close
+    self.pure_data.connections.each{|x|x.close}
+    # as suggested in http://stackoverflow.com/questions/4866689/remove-a-class-instance-in-ruby
+    @@instances.delete(self)
+    self.instance_variables.each{|v| self.instance_variable_set(v,nil)}
+  end
   #
   # generates an array of column mappings as described in CSV_REFERENCE.md
   #   
@@ -69,7 +78,7 @@ class Player
   end
 
   #
-  #
+  # play the sequence from a given row index.
   #
   def play(first_index=0)
     self.sequence[first_index..-1].each_with_index do |row, index|
@@ -96,6 +105,9 @@ class Player
     sleep step_time / 1000.0
   end
 
+  #
+  # process commands to the sequencer via the master column
+  #
   def master_commands(commands)
     if commands and !commands.empty?
       commands = commands.split(';')
