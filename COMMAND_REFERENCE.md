@@ -50,6 +50,8 @@ Attributes will always be a space-separated list. The name of an attribute, then
 * decay_time - volume envelope second stage, reducing to sustain_level
 * sustain_level - sustain volume, as a proportion of volume
 * release_time - volume envelope end, down to zero
+* fm_depth - how deep the FM synthesis is (as a proportion of the note frequency)
+* fm_frequency - how fast the FM synthesis is (as a proportion of the note frequency)
 
 Booleans
 --------
