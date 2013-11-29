@@ -58,8 +58,11 @@ Booleans are synth settings which are explicitly set on or off. Always the boole
 
 `pd.send_command(0, 'portamento on')`
 
-* portamento - slide between notes, or not. 
+* portamento - slide between notes, or not. (TODO)
 * noise - turn white noise sound on or off
+* sine - simple sine-wave tone generator
+* fm - frequency modulation synthesizer
+* square - filtered square wave syntheseizer
 
 Events
 ------
