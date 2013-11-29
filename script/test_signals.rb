@@ -7,3 +7,4 @@ require './lib/player.rb'
 #Player.play('sequences/test/envelopes.csv') # volume envelopes (ADSR)
 #Player.play('sequences/test/drums.csv') # drum line, testing event columns
 Player.play('sequences/test/synths.csv') # try out multiple synth voices
+#Player.play('sequences/test/fm.csv') # A quick look at the FM capabilities

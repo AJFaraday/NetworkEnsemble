@@ -53,7 +53,7 @@ class Player
     if mapping_row[0].to_i > 0
       self.no_parts = mapping_row[0].to_i
     else 
-      throw Error, "The first cell of the CSV file must be the number of parts."
+      raise RuntimeError, "The first cell of the CSV file must be the number of parts. (#{file_path})"
     end
     generate_mappings
     self.pure_data = PureData.new
@@ -139,7 +139,7 @@ class Player
               self.resolution = value
           end
         else 
-          throw Error, "master commands must contain both a valid name (#{MASTER_COMMANDS.inspect}) and a value"
+          raise RuntimeError, "master commands must contain both a valid name (#{MASTER_COMMANDS.inspect}) and a value"
         end   
       end
       set_step_time
