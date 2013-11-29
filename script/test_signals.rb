@@ -1,27 +1,9 @@
 require './lib/player.rb' 
 
-# straight forward note sequence
-p = Player.new('sequences/test/notes.csv')
-p.play
-p.close
-
-# volume per chanel
-p = Player.new('sequences/test/volume.csv')
-p.play
-p.close
-
-# master volume (across all channels) 
-p = Player.new('sequences/test/master_volume.csv')
-p.play
-p.close
-
-# volume envelopes (ADSR)
-p = Player.new('sequences/test/envelopes.csv')
-p.play
-p.close
-
-# drum line, testing event columns
-p = Player.new('sequences/test/drums.csv')
-p.play
-p.close
-
+#Player.play('sequences/test/notes.csv') # straight forward note sequence
+#Player.play('sequences/test/chords.csv') # some simultaneous notes
+#Player.play('sequences/test/volume.csv')# volume per chanel
+#Player.play('sequences/test/master_volume.csv') # master volume (across all channels) 
+#Player.play('sequences/test/envelopes.csv') # volume envelopes (ADSR)
+#Player.play('sequences/test/drums.csv') # drum line, testing event columns
+Player.play('sequences/test/synths.csv') # try out multiple synth voices

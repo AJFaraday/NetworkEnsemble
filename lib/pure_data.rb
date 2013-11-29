@@ -19,12 +19,17 @@ class PureData
     'attack_time',
     'decay_time',
     'sustain_level',
-    'release_time'
+    'release_time',
+    'fm_frequency',
+    'fm_depth'
   ]
 
   BOOLEANS = [
     'portamento',
-    'noise'
+    'noise',
+    'sine',
+    'fm',
+    'square'
   ]
 
   EVENTS = [

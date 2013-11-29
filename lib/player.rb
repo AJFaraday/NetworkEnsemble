@@ -61,6 +61,12 @@ class Player
     master_commands(self.sequence[0][master_column])
   end
 
+  def Player.play(file_path)
+    p = Player.new(file_path)
+    p.play
+    p.close
+  end
+
   def close
     self.pure_data.connections.each{|x|x.close}
     self.sequence = nil
