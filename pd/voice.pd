@@ -193,7 +193,7 @@
 #X restore 136 167 pd fm_synth~;
 #X text 21 149 Simple sine;
 #X text 149 144 FM algorithm;
-#N canvas 500 211 450 300 note_envelope~ 0;
+#N canvas 46 129 450 300 note_envelope~ 1;
 #X obj 65 163 *~;
 #X obj 159 106 line~;
 #X obj 65 117 inlet~;
