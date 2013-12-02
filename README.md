@@ -61,4 +61,14 @@ On your sequencing box:
 All being well, you should receive a delightful birthday treat.
 
 
+So what do I do now?
+--------------------
+
+The next step is to add your own tunes using CSV files, these can be added back into the repo, but keep them in a folder, labelled as yours.
+
+* `mkdir sequences/myname`
+* choose a template from sequences/templates
+* `cp sequences/templates/quartet-44-16.csv sequences/myname/mytune.csv` 
+
+
 
