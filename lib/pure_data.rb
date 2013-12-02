@@ -53,7 +53,9 @@ class PureData
     self.connections = []
     begin
       config = YAML.load_file("#{File.dirname(__FILE__)}/../config/config.yml")
-      connection_configs = config['connections']
+      puts "config profile: #{config['profile']}"
+      puts config[config['profile']].inspect
+      connection_configs = config[config['profile']]['connections']
     rescue
       puts "config.yml not found, please copy it from the template and modify as required. (`cp config/config.yml.template config/config.yml`)"
       abort
