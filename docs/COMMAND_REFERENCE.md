@@ -45,7 +45,7 @@ Attributes will always be a space-separated list. The name of an attribute, then
 `pd.send_command(0, 'volume 50')`
 
 * volume - How loud it goes
-* portamento_time - Time to slide between notes
+* portamento_time - Time to slide between notes (TODO)
 * attack_time - volume envelope start, raising to volume
 * decay_time - volume envelope second stage, reducing to sustain_level
 * sustain_level - sustain volume, as a proportion of volume
@@ -64,7 +64,7 @@ Booleans are synth settings which are explicitly set on or off. Always the boole
 `pd.send_command(0, 'portamento on')`
 
 * portamento - slide between notes, or not. (TODO)
-* noise - turn white noise sound on or off
+* noise - turn white noise sound on or off (TODO)
 * sine - simple sine-wave tone generator
 * fm - frequency modulation synthesizer
 * square - square wave syntheseizer

@@ -193,7 +193,7 @@ class Player
   # is it a compound time signature?
   # 
   def compound_time?
-    self.pulse_count.to_i / 3 == self.pulse_count.to_f / 3.0
+    (self.pulse_count.to_i / 3 == self.pulse_count.to_f / 3.0) and self.pulse_count != 3
   end
 
 end

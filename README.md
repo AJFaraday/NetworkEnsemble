@@ -69,6 +69,27 @@ The next step is to add your own tunes using CSV files, these can be added back 
 * `mkdir sequences/myname`
 * choose a template from sequences/templates
 * `cp sequences/templates/quartet-44-16.csv sequences/myname/mytune.csv` 
+* open your new tune in your favourite csv editor (I recommend libre office, but you could use any spreadsheet program)
+* write a tune in there
+* Save it (careful to save it as CSV, no matter what they tell you to do)
+* `ruby sequences/myname/mytune.csv`
 
+How do you write a tune?
+
+Look at the CSV reference in the docs, and the command reference.
+
+Documentation
+-------------
+
+References (written as I go along) are available in the docs/ directory. 
+
+* CSV_REFERENCE.md - How a sequence CSV file is constructed, what the columns mean and the format it expects in them.
+* COMMAND_REFERENCE.md - A full list of available commands for the command and event columns.
+* MODULE_REFERENCE.md - A reference of what the pd synths are capable of, and what to put in your sequence to control it.
+
+Contributors
+------------
+
+* Andrew Faraday - (www.twitter.com/MarmiteJunction)
 
 
