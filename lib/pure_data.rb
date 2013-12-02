@@ -80,7 +80,7 @@ class PureData
     puts "sending loadbang"
     self.connections.each{|x|x.puts "loadbang;"}
     # half second gap to assure loadbang has time to take effect
-    sleep 0.5
+    sleep 0.1
   end
 
   #
