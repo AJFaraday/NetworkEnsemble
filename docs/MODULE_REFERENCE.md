@@ -89,8 +89,34 @@ Attribute:
 * sq_freq: the frequency of the filter peak as a proportion of the note pitch, 50 is identical to the note frequency.
 * sq_depth: a mix between the raw and filtered sound
 
+Drum Machine
+------------
+
+A very simple drum machine, all one-off events. 
+
+* kick - A bass drum sound
+* snare - Snare drum
+* hat - a hi-hat cymbal
+* beep - random beep
 
 
+White Noise
+-----------
+
+NOT YET DEVELOPED 
+
+A filtered white noise generator, just for fun. 
+
+Booleans: 
+* noise - turn white noise on and off.
+
+Attributes: 
+* noise_attack - amount of time for noise to fade in (milliseconds, not 0 to 100)
+* noise_decay - amount of time for noise to fade out (milliseconds, not 0 to 100)
+* noise_f_freq - a centre freqeuency for the noise filter
+* noise_f_width - how much noise is heard either side of the centre frequency
+* noise_f_mod_freq - a frequency in herz for the filter frequency to wobble (not 0 to 100, 0 to 5 would be good)
+* noise_f_mod_depth - how far the filter frequency wobble goes, in herz (not 0 to 100)
 
 
 
