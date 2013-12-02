@@ -1,16 +1,16 @@
-profile: local
+profile: 'local'
 #
 # local profile is designed to work with pd/quartet.pd on the same machine as the sequencer script 
 #
 local: 
   connections: 
-    - hostname: '192.168.0.1'
+    - hostname: '127.0.0.1'
       port: 3001
-    - hostname: '192.168.0.1'
+    - hostname: '127.0.0.1'
       port: 3002
-    - hostname: '192.168.0.1'
+    - hostname: '127.0.0.1'
       port: 3003
-    - hostname: '192.168.0.1'
+    - hostname: '127.0.0.1'
       port: 3004
 #
 # remote profile is a template for multiple instances of Pure Data (pd/single.pd) on a local network making (will need modification)
