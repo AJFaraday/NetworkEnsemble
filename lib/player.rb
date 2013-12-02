@@ -127,6 +127,7 @@ class Player
       commands = commands.split(';')
       commands.each do |command|
         command, value = command.split(' ')
+        command = command.downcase
         if command and value and MASTER_COMMANDS.include?(command)
           case command.downcase
             when 'master_volume'

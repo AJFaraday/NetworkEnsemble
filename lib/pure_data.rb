@@ -21,7 +21,10 @@ class PureData
     'sustain_level',
     'release_time',
     'fm_frequency',
-    'fm_depth'
+    'fm_depth',
+    'sq_width',
+    'sq_depth',
+    'sq_freq'
   ]
 
   BOOLEANS = [
@@ -29,7 +32,8 @@ class PureData
     'noise',
     'sine',
     'fm',
-    'square'
+    'square',
+    'sq_filter'
   ]
 
   EVENTS = [
@@ -73,7 +77,9 @@ class PureData
   # sends 'loadbang' signal to puredata to restore defaults
   def send_loadbang
     puts "sending loadbang"
-    self.connections.each{|x|x.puts "loadbang 1;"}
+    self.connections.each{|x|x.puts "loadbang;"}
+    # half second gap to assure loadbang has time to take effect
+    sleep 0.5
   end
 
   #
@@ -82,7 +88,7 @@ class PureData
   def send_command(connection_index, command)
     error = false
     command_parts = command.split(' ')
-    command_name = command_parts[0]
+    command_name = command_parts[0].downcase
     if self.connections.count <= connection_index.to_i
       error = "Index: #{connection_index} is invalid, there are #{self.connections.count} connections."
     elsif PureData::ATTRIBUTES.include?(command_name)
@@ -93,7 +99,7 @@ class PureData
         error = "Not a valid attribute command, should be name, then a number."
       end
 
-    elsif PureData::BOOLEANS.include?(command_name)
+    elsif PureData::BOOLEANS.include?(command_name.downcase)
 
       if command_parts.count == 2 and ['on','off'].include?(command_parts[1])
         command = "boolean #{command_name} #{command_parts[1] == 'on' ? 1 : 0}"
@@ -101,7 +107,7 @@ class PureData
         error = "Not a valid boolean command, should be the name, then 'on' or 'off'."
       end
 
-    elsif PureData::EVENTS.include?(command_name)
+    elsif PureData::EVENTS.include?(command_name.downcase)
 
       if command_parts.count == 1
         command = "event #{command}"

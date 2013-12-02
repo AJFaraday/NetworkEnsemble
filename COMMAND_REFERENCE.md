@@ -52,6 +52,9 @@ Attributes will always be a space-separated list. The name of an attribute, then
 * release_time - volume envelope end, down to zero
 * fm_depth - how deep the FM synthesis is (as a proportion of the note frequency)
 * fm_frequency - how fast the FM synthesis is (as a proportion of the note frequency)
+* sq_width - the width of the waveband on the filter on square wave synth (todo)
+* sq_depth - how deep the filter on the square wave synth is
+* sq_freq - The centre frequency on the square wave synth filter (proportion of the note, 50 is the same frequency).
 
 Booleans
 --------
@@ -64,7 +67,8 @@ Booleans are synth settings which are explicitly set on or off. Always the boole
 * noise - turn white noise sound on or off
 * sine - simple sine-wave tone generator
 * fm - frequency modulation synthesizer
-* square - filtered square wave syntheseizer
+* square - square wave syntheseizer
+* sq_filter - turn filter on or off on square wave synth (todo)
 
 Events
 ------
