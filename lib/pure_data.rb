@@ -54,7 +54,6 @@ class PureData
     begin
       config = YAML.load_file("#{File.dirname(__FILE__)}/../config/config.yml")
       puts "config profile: #{config['profile']}"
-      puts config[config['profile']].inspect
       connection_configs = config[config['profile']]['connections']
     rescue
       puts "config.yml not found, please copy it from the template and modify as required. (`cp config/config.yml.template config/config.yml`)"
@@ -66,7 +65,7 @@ class PureData
       begin
         self.connections << TCPSocket.open(hostname, port)
         puts "Connection established on #{hostname}:#{port}"
-      rescue Errno::ECONNREFUSED
+      rescue Errno::ECONNREFUSED, Errno::ENETUNREACH
         puts "Connection refused! Please ensure single.pd or quartet.pd is running in puredata and listening on #{hostname}:#{port}"
         abort
       rescue SocketError
