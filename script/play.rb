@@ -1,3 +1,3 @@
 require './lib/player.rb' 
 
-Player.play("../#{ARGV[0]}") 
+Player.play("#{ARGV[0]}") 
