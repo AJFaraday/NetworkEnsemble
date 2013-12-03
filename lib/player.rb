@@ -163,9 +163,9 @@ class Player
   # parse a note string, and send it to pd
   #
   def play_note(index, note)
-    if note and !note.empty?
+    if note
       note, length = note.split(' ')
-      length = length.to_i * step_time
+      length = length.to_i * step_time 
       pure_data.send_note(index,note,length)
     end
   end
@@ -187,6 +187,7 @@ class Player
       rows_per_beat = self.resolution.to_f / self.pulse_resolution.to_f
       self.step_time = beat_milliseconds.to_f / rows_per_beat 
     end
+    #self.step_time = self.step_time / 1000
   end  
 
   #

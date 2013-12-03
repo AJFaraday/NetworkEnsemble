@@ -1,6 +1,6 @@
-#N canvas 439 99 875 464 10;
+#N canvas 149 99 875 464 10;
 #X obj 19 26 netreceive \$1;
-#X floatatom 120 49 5 0 0 0 - - -, f 5;
+#X floatatom 120 49 5 0 0 0 - - -;
 #X obj 19 276 print note_\$1;
 #X obj 70 255 print attribute_\$1;
 #X obj 121 234 print boolean_\$1;
@@ -9,11 +9,11 @@
 #X obj 69 348 s attribute_\$0;
 #X obj 121 328 s boolean_\$0;
 #X obj 172 308 s event_\$0;
-#N canvas 438 214 450 300 note 1;
+#N canvas 438 214 450 300 note 0;
 #X obj 39 22 r note_\$0;
 #X obj 39 57 unpack f f;
-#X floatatom 39 85 5 0 0 0 - - -, f 5;
-#X floatatom 109 84 5 0 0 0 - - -, f 5;
+#X floatatom 39 85 5 0 0 0 - - -;
+#X floatatom 109 84 5 0 0 0 - - -;
 #X obj 39 168 mtof;
 #X obj 39 196 s pitch_\$0;
 #X obj 109 197 s note_switch_\$0;
@@ -53,7 +53,7 @@
 #X obj 223 70 loadbang;
 #X msg 223 91 50;
 #X text 226 47 default;
-#X floatatom 174 127 5 0 0 0 - - -, f 5;
+#X floatatom 174 127 5 0 0 0 - - -;
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
 #X connect 3 0 2 1;
@@ -166,8 +166,8 @@
 #X obj 87 34 r~ synth_in_\$0;
 #X obj 406 135 s~ fm_freq_\$0;
 #X obj 71 13 r~ fm_freq_\$0;
-#X floatatom 279 97 5 0 0 0 - - -, f 5;
-#X floatatom 373 97 5 0 0 0 - - -, f 5;
+#X floatatom 279 97 5 0 0 0 - - -;
+#X floatatom 373 97 5 0 0 0 - - -;
 #X msg 418 54 50;
 #X msg 324 54 20;
 #X connect 0 0 3 0;
@@ -277,8 +277,8 @@
 #X obj 745 30 r sq_raw_\$0;
 #X obj 745 51 sel 0;
 #X obj 745 72 del 10;
-#X floatatom 53 92 5 0 0 0 - - -, f 5;
-#X floatatom 173 92 5 0 0 0 - - -, f 5;
+#X floatatom 53 92 5 0 0 0 - - -;
+#X floatatom 173 92 5 0 0 0 - - -;
 #X obj 303 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X connect 2 0 0 0;
@@ -313,8 +313,8 @@
 #X connect 39 0 40 0;
 #X connect 40 0 34 0;
 #X restore 431 16 pd filter_switch;
-#X floatatom 73 192 5 0 0 0 - - -, f 5;
-#X floatatom 204 186 5 0 0 0 - - -, f 5;
+#X floatatom 73 192 5 0 0 0 - - -;
+#X floatatom 204 186 5 0 0 0 - - -;
 #X obj 159 164 r sq_cooked_level_\$0;
 #X obj 529 309 s sq_q_\$0;
 #X obj 495 159 loadbang;
@@ -330,7 +330,7 @@
 #X obj 329 152 * 2;
 #X msg 321 63 60;
 #X obj 15 146 *~ 0.1;
-#X floatatom 290 196 5 0 0 0 - - -, f 5;
+#X floatatom 290 196 5 0 0 0 - - -;
 #X obj 529 183 r sq_width_\$0;
 #X obj 529 205 / 100;
 #X obj 529 226 * -1;
@@ -484,10 +484,10 @@
 #X obj 293 181 t b b;
 #X obj 18 11 r note_switch_\$0;
 #X text 24 -9 note on or off?;
-#X floatatom 90 288 5 0 0 0 - - -, f 5;
-#X floatatom 362 257 5 0 0 0 - - -, f 5;
-#X floatatom 546 257 5 0 0 0 - - -, f 5;
-#X floatatom 689 272 5 0 0 0 - - -, f 5;
+#X floatatom 90 288 5 0 0 0 - - -;
+#X floatatom 362 257 5 0 0 0 - - -;
+#X floatatom 546 257 5 0 0 0 - - -;
+#X floatatom 689 272 5 0 0 0 - - -;
 #X obj 501 142 r sustain_\$0;
 #X obj 18 137 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;

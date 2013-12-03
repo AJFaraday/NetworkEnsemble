@@ -131,8 +131,8 @@ class PureData
   # Sends a general note message to a pd connection
   #
   def send_note(connection_index, note, length)
-    note = Note.get_midi_number(note)
-    command = "note #{note} #{length.to_f - 10}" # - 10 milliseconds to avoid non-triggering notes
+    note = Note.get_midi_number(note.upcase)
+    command = "note #{note} #{length.to_f}" # - 10 milliseconds to avoid non-triggering notes
     puts "#{connection_index}: #{command}"
     connections[connection_index.to_i].puts "#{command};"
   end
