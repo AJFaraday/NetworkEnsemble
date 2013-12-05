@@ -36,7 +36,7 @@ class Note
       puts "#{note_name} is not a valid note, too long."
     elsif note_name.length < 2
       puts "#{note_name} is not a valid note, too short (at least a note name and octave number)"
-    elsif !NOTE_NAMES.keys.include?(parts[0])
+    elsif !NOTE_NAMES.keys.include?(parts[0].upcase)
       puts "#{note_name} is not a valid note, the first character must be a valid note name (in #{NOTE_NAMES.inspect})"
     elsif !OCTAVES.include?(parts[-1])
       puts "#{note_name} is not a valid note, the last character must be a valid octave number (in #{OCTAVES.inspect})"

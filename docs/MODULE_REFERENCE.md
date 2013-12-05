@@ -82,7 +82,7 @@ A square wave is a harsh waveform, this one has the option of a filter to soften
 
 Booleans:
 * square - will the square wave synth be heard or not? 
-* square_filter - will this sound be filtered?
+* sq_filter - will this sound be filtered?
 
 Attribute:
 * sq_width: how wide a waveform will get through the filter if it`s on
