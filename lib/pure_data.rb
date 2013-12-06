@@ -46,6 +46,9 @@ class PureData
     'kick',
     'snare',
     'hat',
+    'tom1',
+    'tom2',
+    'tom3',
     'beep'
   ]
 
