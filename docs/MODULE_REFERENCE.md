@@ -94,6 +94,7 @@ Drum Machine
 
 A very simple drum machine, all one-off events. 
 
+events:
 * kick - A bass drum sound
 * snare - Snare drum
 * hat - a hi-hat cymbal
@@ -102,6 +103,8 @@ A very simple drum machine, all one-off events.
 * tom3 - no prizes or guessing this
 * beep - random beep
 
+attributes:
+* snare_roll - technically an attribute, actually an event - one rows worth of drum roll, followed by the number of strikes (e.g. snare_roll 4 will cram 4 snare hits into a single row)
 
 White Noise
 -----------

@@ -10,3 +10,4 @@ Player.play('sequences/test/synths.csv') # try out multiple synth voices
 Player.play('sequences/test/fm.csv') # A quick look at the FM capabilities
 Player.play('sequences/test/square.csv') # A quick look at parameters for the square-wave synth
 Player.play('sequences/test/noise.csv') # white noise generator
+Plater.play('sequences/test/drum_rolls.csv') # snare rolls, plus drum levels

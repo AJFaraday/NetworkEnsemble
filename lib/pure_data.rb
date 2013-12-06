@@ -15,6 +15,7 @@ class PureData
 
   ATTRIBUTES = [
     'volume', 
+    'drum_level',
     'portamento_time',
     'attack_time',
     'decay_time',
@@ -30,7 +31,8 @@ class PureData
     'noise_f_freq',
     'noise_f_width',
     'noise_f_mod_freq',
-    'noise_f_mod_depth'
+    'noise_f_mod_depth',
+    'snare_roll'
   ]
 
   BOOLEANS = [

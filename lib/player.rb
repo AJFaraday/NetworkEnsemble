@@ -155,7 +155,17 @@ class Player
   def send_commands(index,commands)
     if commands and !commands.empty?
       commands = commands.split(';')
-      commands.each{|command| pure_data.send_command(index, command.downcase)}
+      commands.each do |command| 
+        command_parts = command.split(' ')
+        if command_parts[0] == 'snare_roll'
+          # snare rolls are a special case
+          command = "attribute snare_roll #{self.step_time / command_parts[1].to_i} #{self.step_time};"
+          puts command
+          pure_data.connections[index].puts command
+        else 
+          pure_data.send_command(index, command.downcase) 
+        end
+      end
     end
   end
 
