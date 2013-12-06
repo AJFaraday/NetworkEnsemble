@@ -97,6 +97,9 @@ A very simple drum machine, all one-off events.
 * kick - A bass drum sound
 * snare - Snare drum
 * hat - a hi-hat cymbal
+* tom1 - first tom tom
+* tom2 - second tom tom
+* tom3 - no prizes or guessing this
 * beep - random beep
 
 
