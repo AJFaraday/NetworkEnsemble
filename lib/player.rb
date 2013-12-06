@@ -187,6 +187,7 @@ class Player
       rows_per_beat = self.resolution.to_f / self.pulse_resolution.to_f
       self.step_time = beat_milliseconds.to_f / rows_per_beat 
     end
+    puts "step time = #{self.step_time}"
     #self.step_time = self.step_time / 1000
   end  
 

@@ -55,6 +55,12 @@ Attributes will always be a space-separated list. The name of an attribute, then
 * sq_width - the width of the waveband on the filter on square wave synth (todo)
 * sq_depth - how deep the filter on the square wave synth is
 * sq_freq - The centre frequency on the square wave synth filter (proportion of the note, 50 is the same frequency).
+* noise_attack - in milliseconds, how long it takes noise to fade in (not 0-100)
+* niose_decay - in milliseconds, how long it takes noise to fade out (not 0-100)
+* noise_f_freq - centre frequency for white noise filter (not 0-100)
+* noise_f_mod_freq - modulation speed in Hz for white noise filter (not 0-100)
+* nosie_f_mod_depth - depth of modulation on white noise modulation in Hz (not 0-100)
+
 
 Booleans
 --------
@@ -64,11 +70,11 @@ Booleans are synth settings which are explicitly set on or off. Always the boole
 `pd.send_command(0, 'portamento on')`
 
 * portamento - slide between notes, or not. (TODO)
-* noise - turn white noise sound on or off (TODO)
+* noise - turn white noise sound on or off
 * sine - simple sine-wave tone generator
 * fm - frequency modulation synthesizer
 * square - square wave syntheseizer
-* sq_filter - turn filter on or off on square wave synth (todo)
+* sq_filter - turn filter on or off on square wave synth 
 
 Events
 ------

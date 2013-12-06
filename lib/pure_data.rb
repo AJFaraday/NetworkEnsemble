@@ -24,7 +24,13 @@ class PureData
     'fm_depth',
     'sq_width',
     'sq_depth',
-    'sq_freq'
+    'sq_freq',
+    'noise_attack',
+    'noise_decay',
+    'noise_f_freq',
+    'noise_f_width',
+    'noise_f_mod_freq',
+    'noise_f_mod_depth'
   ]
 
   BOOLEANS = [
