@@ -74,13 +74,19 @@ class PureData
       hostname = connection['hostname']
       port = connection['port']
       begin
-        self.connections << TCPSocket.open(hostname, port)
+        sock = UDPSocket.new
+        sock.connect(hostname, port)
+        self.connections << sock
         puts "Connection established on #{hostname}:#{port}"
       rescue Errno::ECONNREFUSED, Errno::ENETUNREACH
         puts "Connection refused! Please ensure single.pd or quartet.pd is running in puredata and listening on #{hostname}:#{port}"
         abort
       rescue SocketError
         puts "Hostname and port are invalid. Please make sure they're a valid ip address and port number."
+        abort
+      rescue => er
+        puts "Unknown error: #{er.message}"
+        puts er.backtrace
         abort
       end
     end
@@ -89,8 +95,8 @@ class PureData
   # sends 'loadbang' signal to puredata to restore defaults
   def send_loadbang
     puts "sending loadbang"
-    self.connections.each{|x|x.puts "loadbang;"}
-    # half second gap to assure loadbang has time to take effect
+    self.connections.each{|x|x.send "loadbang;\n", 0}
+    # short gap to assure loadbang has time to take effect
     sleep 0.1
   end
 
@@ -134,7 +140,7 @@ class PureData
       puts "ERROR on command \"#{command}\": #{error}"
     else
       puts "#{connection_index}: #{command}"
-      connections[connection_index.to_i].puts "#{command};"
+      connections[connection_index.to_i].send "#{command};\n", 0
     end
   end
 
@@ -145,7 +151,7 @@ class PureData
     note = Note.get_midi_number(note)
     command = "note #{note} #{length.to_f}" 
     puts "#{connection_index}: #{command}"
-    connections[connection_index.to_i].puts "#{command};"
+    connections[connection_index.to_i].send "#{command};\n", 0
   end
 
 end

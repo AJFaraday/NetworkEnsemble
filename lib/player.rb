@@ -161,7 +161,7 @@ class Player
           # snare rolls are a special case
           command = "attribute snare_roll #{self.step_time / command_parts[1].to_i} #{self.step_time};"
           puts command
-          pure_data.connections[index].puts command
+          pure_data.connections[index].send "#{command}\n", 0
         else 
           pure_data.send_command(index, command.downcase) 
         end

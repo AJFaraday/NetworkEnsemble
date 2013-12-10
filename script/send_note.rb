@@ -3,7 +3,8 @@
 #
 # E.G. ruby scripts/send_command.pd volume 100
 #
-require "#{File.dirname(__FILE__)}/../lib/pure_data.rb"
+require_relative "./../lib/pure_data.rb"
+
 pd = PureData.new
 
 index = ARGV[0]
