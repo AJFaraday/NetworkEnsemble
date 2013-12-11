@@ -189,10 +189,12 @@ class Player
       throw Error, "To set step time there must be a time signature, bpm and note resolution."
     end
     if self.compound_time?
+      puts "compound time"
       beat_milliseconds = MINUTE_MILLISECONDS / bpm.to_f
       rows_per_beat = self.resolution.to_f / self.pulse_resolution.to_f
       self.step_time = (beat_milliseconds.to_f / (rows_per_beat * 3)) 
     else # simple time
+      puts 'simple time'
       beat_milliseconds = MINUTE_MILLISECONDS / bpm.to_f 
       rows_per_beat = self.resolution.to_f / self.pulse_resolution.to_f
       self.step_time = beat_milliseconds.to_f / rows_per_beat 
@@ -205,7 +207,7 @@ class Player
   # is it a compound time signature?
   # 
   def compound_time?
-    (self.pulse_count.to_i / 3 == self.pulse_count.to_f / 3.0) and self.pulse_count != 3
+    (self.pulse_count.to_i / 3 == self.pulse_count.to_f / 3.0) and self.pulse_count.to_i != 3
   end
 
 end
