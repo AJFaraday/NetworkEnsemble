@@ -61,9 +61,9 @@ class Player
     master_commands(self.sequence[0][master_column])
   end
 
-  def Player.play(file_path)
+  def Player.play(file_path,first_index=0)
     p = Player.new(file_path)
-    p.play
+    p.play(first_index)
     p.close
   end
 
@@ -90,9 +90,10 @@ class Player
     if self.closed 
       puts "Player has been closed and will not now play."
     else
+      puts first_index
       self.sequence[first_index..-1].each_with_index do |row, index|
         puts "#{index + first_index}: #{row.compact.join(' , ')}"
-        play_row(index)
+        play_row(index + first_index)
       end
       return nil
     end

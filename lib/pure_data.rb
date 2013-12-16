@@ -32,7 +32,8 @@ class PureData
     'noise_f_width',
     'noise_f_mod_freq',
     'noise_f_mod_depth',
-    'snare_roll'
+    'snare_roll',
+    'track_volume'
   ]
 
   BOOLEANS = [
@@ -77,6 +78,12 @@ class PureData
         sock = UDPSocket.new
         sock.connect(hostname, port)
         self.connections << sock
+        if connection['volume']
+        self.send_command((connections.length - 1), "track_volume #{connection['volume']}")
+        else
+          puts "Connection: #{connections.length - 1} is missing the volume attribute!"
+          abort
+        end
         puts "Connection established on #{hostname}:#{port}"
       rescue Errno::ECONNREFUSED, Errno::ENETUNREACH
         puts "Connection refused! Please ensure single.pd or quartet.pd is running in puredata and listening on #{hostname}:#{port}"
@@ -150,7 +157,7 @@ class PureData
   def send_note(connection_index, note, length)
     note = Note.get_midi_number(note)
     command = "note #{note} #{length.to_f}" 
-    puts "#{connection_index}: #{command}"
+    #puts "#{connection_index}: #{command}"
     connections[connection_index.to_i].send "#{command};\n", 0
   end
 

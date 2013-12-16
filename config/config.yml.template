@@ -6,12 +6,16 @@ local:
   connections: 
     - hostname: '127.0.0.1'
       port: 3001
+      volume: 50
     - hostname: '127.0.0.1'
       port: 3002
+      volume: 50
     - hostname: '127.0.0.1'
       port: 3003
+      volume: 50
     - hostname: '127.0.0.1'
       port: 3004
+      volume: 50
 #
 # remote profile is a template for multiple instances of Pure Data (pd/single.pd) on a local network making (will need modification)
 #
@@ -19,9 +23,13 @@ remote:
   connections:
     - hostname: '127.0.0.1'
       port: 3001
+      volume: 50
     - hostname: '192.168.1.XXX'
       port: 3001
+      volume: 50
     - hostname: '192.168.1.XXX'
       port: 3001
+      volume: 50
     - hostname: '192.168.1.XXX'
       port: 3001
+      volume: 50
