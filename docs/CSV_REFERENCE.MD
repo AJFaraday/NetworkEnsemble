@@ -45,6 +45,11 @@ examples:
 * volume 100
 * portamento on
 
+Presets are defined in config/presets.yml and are a list of commands to be called together by name.
+
+* sweet_fm
+* hard_attack
+
 Event columns are markers for one-time events. For a full list look at COMMAND_REFERENCE.md, where they are listed as events. They consist of a name and nothing else. 
 
 examples: 
