@@ -18,6 +18,7 @@ Setup
 * `git clone git@github.com/ajfaraday/NetworkEnsemble`
 * `cd NetworkEnsemble`
 * `cp config/config.yml.template config/config.yml`
+* `cp config/presets.yml.template config/presets.yml`
 
 Config
 ------

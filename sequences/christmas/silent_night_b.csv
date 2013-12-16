@@ -1,6 +1,6 @@
 "4","0_note","1_note","2_note","3_note","master","0_command","1_command","2_command","3_command","0_event","1_event","2_event","3_event"
-"####","F4 3","Bb3 1",,"Bb2 5","Time 3/4; resolution 8; bpm 120","Volume 75","Volume 50; drum_level 5","Volume 25; drum_level 5; fm on; sine off","Volume 50; attack_time 100;  drum_level 5; square on; sine off;  sq_freq 50; sq_filter on",,,,"kick"
-,,"D3 1",,,,,,,"sustain_level 90; release_time 800;",,,,
+"####","F4 3","Bb3 1",,"Bb2 5","Time 3/4; resolution 8; bpm 120","Volume 75","Volume 50; drum_level 5","Volume 25; drum_level 5; sweet_fm","Volume 50;  drum_level 5; bass_square",,,,"kick"
+,,"D3 1",,,,,,,,,,,
 "----",,"F3 1",,,,,,,,,,"hat ",
 ,"G4 1","D3 1",,,,,,,,,,,
 "----","F4 2","Bb4 1",,,,,,,,,,"hat ",

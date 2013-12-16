@@ -1,5 +1,5 @@
 "4","0_note","1_note","2_note","3_note","master","0_command","1_command","2_command","3_command","0_event","1_event","2_event","3_event"
-,"D4 2",,,,"time 4/4; resolution 8; bpm 160","fm on","fm on ","fm on","square on; sq_filter on;",,,,
+,"D4 2",,,,"time 4/4; resolution 8; bpm 160","fm on","fm on","fm on","square on; sq_filter on;",,,,
 ,,,,,,,,,"sq_freq 50",,,,
 "####","D4 2",,,,,,,,"sq_depth 80",,,,
 ,,,,,,,,,,,,,

@@ -39,6 +39,9 @@ class Player
   # When it's finished with, tcp sockets are closed, this is flagged
   attr_accessor :closed
 
+  # a list of presets from config/presets.yml
+  attr_accessor :presets
+
   MASTER_COMMANDS = ['bpm', 'time','resolution','master_volume']
 
   MINUTE_MILLISECONDS = 60000
@@ -55,6 +58,7 @@ class Player
     else 
       raise RuntimeError, "The first cell of the CSV file must be the number of parts. (#{file_path})"
     end
+    self.presets = YAML.load_file("#{File.dirname(__FILE__)}/../config/presets.yml")
     generate_mappings
     self.pure_data = PureData.new
     self.next_row = 0
@@ -87,12 +91,13 @@ class Player
   #
   def play(first_index=0)
     self.pure_data.send_loadbang # reset to defaults
+    # adjust for header and 0 index
+    #first_index -= 2
     if self.closed 
       puts "Player has been closed and will not now play."
     else
-      puts first_index
       self.sequence[first_index..-1].each_with_index do |row, index|
-        puts "#{index + first_index}: #{row.compact.join(' , ')}"
+        puts "#{index + first_index + 2}: #{row.compact.join(' , ')}"
         play_row(index + first_index)
       end
       return nil
@@ -163,6 +168,8 @@ class Player
           command = "attribute snare_roll #{self.step_time / command_parts[1].to_i} #{self.step_time};"
           puts command
           pure_data.connections[index].send "#{command}\n", 0
+        elsif self.presets.keys.include?(command_parts[0].downcase)
+          self.presets[command_parts[0].downcase].each{|x|pure_data.send_command(index, x)}
         else 
           pure_data.send_command(index, command.downcase) 
         end

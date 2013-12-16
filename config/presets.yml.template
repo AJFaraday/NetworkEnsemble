@@ -1,0 +1,26 @@
+slow_attack: 
+  - attack_time 200
+  - decay_time 200
+  - sustain_level 90
+  - release_time 500
+hard_attack:
+  - attack_time 50
+  - decay_time 50
+  - sustain_level 20
+  - release_time 50
+# For long bass notes
+bass_square:
+  - attack_time 100
+  - sustain_level 90
+  - release_time 800
+  - sine off
+  - square on
+  - sq_freq 50
+  - sq_filter on
+# a fairly nice bell-like sound on fm synth
+sweet_fm:
+  - sine off
+  - fm on
+  - fm_depth 10
+  - fm_frequency 45
+
