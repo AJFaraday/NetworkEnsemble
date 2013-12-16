@@ -119,7 +119,7 @@ class PureData
     elsif PureData::ATTRIBUTES.include?(command_name)
 
       if command_parts.count == 2 
-        command = "attribute #{command_name} #{command_parts[1].to_i}"
+        command = "attribute #{command_name} #{command_parts[1].to_f}"
       else
         error = "Not a valid attribute command, should be name, then a number."
       end
