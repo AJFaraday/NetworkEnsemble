@@ -35,7 +35,7 @@
 #X text 365 42 message;
 #X text 365 56 parsing/routing;
 #X text 502 46 main sound maker;
-#N canvas 483 166 450 297 synth 1;
+#N canvas 483 166 450 297 synth 0;
 #X msg 59 38 \$1 10;
 #X obj 59 63 line~;
 #X obj 59 13 r pitch_\$0;
@@ -62,7 +62,7 @@
 #X connect 7 0 8 0;
 #X connect 8 0 6 0;
 #X restore 61 235 pd volume~;
-#N canvas 0 50 450 446 master_volume~ 1;
+#N canvas 0 50 450 446 master_volume~ 0;
 #X obj 34 0 inlet~;
 #X obj 33 299 outlet~;
 #X obj 33 265 *~;
@@ -294,8 +294,7 @@
 #X obj 745 72 del 10;
 #X floatatom 53 92 5 0 0 0 - - -;
 #X floatatom 173 92 5 0 0 0 - - -;
-#X obj 303 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X msg 300 19 0;
 #X connect 2 0 0 0;
 #X connect 2 0 41 0;
 #X connect 3 0 1 0;
@@ -327,6 +326,7 @@
 #X connect 38 0 39 0;
 #X connect 39 0 40 0;
 #X connect 40 0 34 0;
+#X connect 43 0 6 0;
 #X restore 431 16 pd filter_switch;
 #X floatatom 73 192 5 0 0 0 - - -;
 #X floatatom 204 186 5 0 0 0 - - -;
@@ -417,7 +417,7 @@
 #X connect 5 0 3 1;
 #X connect 6 0 4 0;
 #X restore 505 75 pd synth;
-#N canvas 557 50 450 470 attribute 1;
+#N canvas 557 50 450 470 attribute 0;
 #X obj 16 11 r attribute_\$0;
 #X obj 16 71 s volume_\$0;
 #X obj 56 92 s attack_\$0;
