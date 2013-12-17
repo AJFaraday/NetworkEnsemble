@@ -1,8 +1,8 @@
 slow_attack: 
-  - attack_time 200
-  - decay_time 200
+  - attack_time 100
+  - decay_time 100
   - sustain_level 90
-  - release_time 500
+  - release_time 700
 hard_attack:
   - attack_time 50
   - decay_time 50
@@ -23,4 +23,10 @@ sweet_fm:
   - fm on
   - fm_depth 10
   - fm_frequency 45
-
+# an atmospheric windy sound
+wind_noise:
+  - noise_f_mod_depth 60
+  - noise_f_mod_freq 0.1
+  - noise_f_width 80
+  - noise_attack 5000
+  - noise_decay 5000
