@@ -17,6 +17,8 @@
 #X text 358 115 keep sample from laoding;
 #X text 369 133 comment;
 #X obj 18 67 throw~ drum_bus_\$2;
+#X obj 75 17 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X connect 0 0 1 0;
 #X connect 1 0 17 0;
 #X connect 2 0 3 0;
@@ -30,3 +32,4 @@
 #X connect 8 0 7 0;
 #X connect 11 0 4 0;
 #X connect 11 0 10 0;
+#X connect 18 0 1 0;

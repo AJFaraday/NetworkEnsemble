@@ -52,6 +52,7 @@ class PureData
     'tom1',
     'tom2',
     'tom3',
+    'bells',
     'beep'
   ]
 
@@ -146,7 +147,7 @@ class PureData
     if error
       puts "ERROR on command \"#{command}\": #{error}"
     else
-      puts "#{connection_index}: #{command}"
+      #puts "#{connection_index}: #{command}"
       connections[connection_index.to_i].send "#{command};\n", 0
     end
   end
