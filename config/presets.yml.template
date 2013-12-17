@@ -1,7 +1,7 @@
 slow_attack: 
   - attack_time 100
   - decay_time 100
-  - sustain_level 90
+  - sustain_level 80
   - release_time 700
 hard_attack:
   - attack_time 50

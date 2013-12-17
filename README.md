@@ -3,13 +3,13 @@ Networked Ensemble
 By Andrew Faraday
 ------------------
 
-An attempt to produce an automated laptop ensemble with PureData and Ruby. The aim is a single sequencer machine and multiple client boxes producing the sound. 
+An attempt to produce an automated laptop ensemble with PureData and Ruby. The aim is a single sequencer machine and multiple client boxes producing the sound.  
 
 Prerequisites
 -------------
 
-* Ruby 1.8 or 1.9
-* puredata `sudo apt-get install puredata` or www.puredata.info/downloads
+* Ruby 1.9
+* puredata `sudo apt-get install puredata` or www.puredata.info/downloads (no need for pd-extended)
 
 Setup
 -----
