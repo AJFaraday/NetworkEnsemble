@@ -44,8 +44,8 @@ Testing
 
 You should hear a number of sequences demonstrating the signals and the sounds they produce.
 
-Network (untested)
-------------------
+Network
+-------
 
 To do this you will need 4 separate computers, connected to speakers, on a wired network. One will be the sequencer box, the rest, just sound.
 
@@ -57,10 +57,19 @@ To do this you will need 4 separate computers, connected to speakers, on a wired
 On your sequencing box:
 
 * vim config/config.yml (change profile to 'remote' and ip addresses on remote profile to your 4 boxes)
-* `ruby scripts/birthday.rb`
+* `ruby scripts/play.rb sequences/tunes/happy_birthday.csv`
 
 All being well, you should receive a delightful birthday treat.
 
+
+Christmas Flashmob
+------------------
+
+The initial purpose in this project is to play an unexpected medley of christmas tunes on a set of work laptops during a meeting. For this sequence use the generic scripts/play.rb script.
+
+`ruby script/play.rb sequences/christmas/flashmob.csv`
+
+Enjoy!
 
 So what do I do now?
 --------------------

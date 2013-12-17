@@ -30,3 +30,8 @@ wind_noise:
   - noise_f_width 80
   - noise_attack 5000
   - noise_decay 5000
+# sine, turn other synths off
+just_sine:
+  - sine on
+  - square off
+  - fm off
