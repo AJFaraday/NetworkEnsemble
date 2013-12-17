@@ -166,7 +166,7 @@ class Player
         if command_parts[0] == 'snare_roll'
           # snare rolls are a special case
           command = "attribute snare_roll #{self.step_time / command_parts[1].to_i} #{self.step_time};"
-          puts command
+          #puts command
           pure_data.connections[index].send "#{command}\n", 0
         elsif self.presets.keys.include?(command_parts[0].downcase)
           self.presets[command_parts[0].downcase].each{|x|pure_data.send_command(index, x)}
