@@ -1,6 +1,6 @@
 "4","0_note","1_note","2_note","3_note","master","0_command","1_command","2_command","3_command","0_event","1_event","2_event","3_event"
-,,,,,"time 4/4; resolution 2; bpm 60",,,,,"beep",,,
-,,,,,,,,,,,,,
+,,,,,"time 4/4; resolution 8; bpm 120",,,,,"beep",,,
+,,,,,"Resolution 1; bpm 70",,,,,,,,
 ,,,,,,,,,,,,,
 ,,,,,,,,,,,,,"beep"
 ,,,,,,,,,,,,,
@@ -187,7 +187,7 @@
 "in",,,,,,"noise_f_mod_depth 100",,,"noise_f_mod_depth 100",,,,
 "the",,,"C4 4",,,"noise_f_width 10",,,"noise_f_width 10",,,,
 "bleak",,,,,,"noise_f_mod_freq 0.13",,,"noise_f_mod_freq 0.15",,,,
-"mid",,,,"F3 2",,"slow_attack","slow_attack","slow_attack","slow_attack",,,,
+" ",,,,"F3 2",,"slow_attack","slow_attack","slow_attack","slow_attack",,,,
 "winter",,,,,,"noise_f_mod_depth 100",,,"noise_f_mod_depth 100",,,,
 "####","A4 3","F4 3","C4 3","F3 3","time 4/4; resolution 8; bpm 90","Volume 75","Volume 50","Volume 50","Volume 50",,,,
 ,,,,,,,,,,,,,
@@ -619,11 +619,11 @@
 "----","C4 2","A3 2",,,,,,,,,"tom2","hat ",
 ,,,,,,,,,,,,"tom1",
 "####","Bb3 6","F3 6",,"Bb2 6",,,,"snare_roll 4; drum_level 10","drum_level 10",,,,"kick"
-,,,,,,,,"snare_roll 4",,,,,
+,,,,,,,,"snare_roll 4","attack_time 40",,,,
 "----",,,,,,,,"snare_roll 4; drum_level 15","drum_level 15",,,,"kick"
-,,,,,,,,"snare_roll 4",,,,,
+,,,,,,,,"snare_roll 4","decay_time 40",,,,
 "----",,,,,,,,"snare_roll 4; drum_level 20","drum_level 20",,,,"kick"
-,,,,,,,,"snare_roll 4",,,,,
+,,,,,,,,"snare_roll 4","sustain_level 70",,,,
 "# dash","G4 2",,,"C3 2","time 4/4; resolution 8; bpm 160","hard_attack; volume 100","drum_level 10","drum_level 30","drum_level 10; fm on",,"bells","snare","kick"
 ,,,,,,,,"drum_level 10",,,,,
 "- ing","E5 2",,,,,,,,,,"bells",,
@@ -746,10 +746,10 @@
 ,,,,,,,,,,,,,
 "# night","C5 4",,,"C2 2",,,,,,,,,"kick"
 ,,,,,,,,,,,,,
-"----",,,,"C2 2",,,,,,,,,"kick"
-,,,,,,,,,,,,,
-"- oh","G5 4",,,"C2 1",,,,,,,"bells","bells","kick"
-,,,,"C2 1",,,,,,,,,"kick"
+"----",,,,"C2 2",,,,,"Volume 70",,,,"kick"
+,,,,,,,,,"attack_time 20",,,,
+"- oh","G5 4",,,"C2 1",,,,,"decay_time 20",,"bells","bells","kick"
+,,,,"C2 1",,,,,"sustain_level 40",,,,"kick"
 "----",,,,"C2 1",,,,,,,,,"kick"
 ,,,,"C2 1",,,,,,,,,"kick"
 "# jin","E5 2","G3 2",,"C2 1",,,,,,,,,"kick"
