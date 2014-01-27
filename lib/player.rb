@@ -146,7 +146,7 @@ class Player
               self.resolution = value
           end
         else 
-          raise RuntimeError, "master commands must contain both a valid name (#{MASTER_COMMANDS.inspect}) and a value"
+          raise RuntimeError, "master commands must contain both a valid name (#{MASTER_COMMANDS.inspect}) and a value. Got: #{command}"
         end   
       end
       set_step_time
