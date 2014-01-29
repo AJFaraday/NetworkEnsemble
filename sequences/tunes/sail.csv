@@ -1,6 +1,6 @@
 4,0_note,1_note,2_note,3_note,master,0_command,1_command,2_command,3_command,0_event,1_event,2_event,3_event
-####,,,,G#6 2,time 12/8; resolution 8; bpm 125,drum_level 20,drum_level 20,Volume 10,Volume 10,,,,
-,,,,,,,,drum_level 20,drum_level 20,,,,
+####,,,,G#6 2,time 12/8; resolution 8; bpm 125,drum_level 40,drum_level 40,Volume 30,Volume 30,,,,
+,,,,,,,,drum_level 40,drum_level 40,,,,
 ,,,,,,,,,,,,,
 --,,,,G#6 2,,,,,,,,,
 ,,,,,,,,,,,,,
@@ -87,7 +87,7 @@
 ,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
 --,,,G#5 2,G#6 2,,,,,,,,,
-,,,,,,,,Volume 10,Volume 10,,,,
+,,,,,,,,Volume 20,Volume 20,,,,
 ,,,,,,,,,,,,,
 -----,,,G#5 2,G#6 2,,,,,,snare,,snare,
 ,,,,,,,,,,,,,
@@ -95,12 +95,12 @@
 --,,,G#5 2,G#6 2,,,,,,snare,,,
 ,,,,,,,,,,,,,
 ,,,,,,sq_filter off,,,,,kick,,
-####,D#3 10,,G#5 2,,,sine off; square on; volume 100,,Volume 10,Volume 10,kick,kick,cymbal,
+####,D#3 10,,G#5 2,,,sine off; square on; volume 100,,,,kick,kick,cymbal,
 ,,,,,,,,,,,,,
 ,,,,,,,fm_depth 0,,,,,,
 --,,,G#5 2,,,,fm on,,,,,,hat
 ,,,,,,,sine off,,,,,,
-,,,,,,,Volume 30,,,,,,
+,,,,,,,Volume 50,,,,,,
 -----,,D#5 1,F#5 2,,,,,,,,snare,,
 ,,D#5 1,,,,,,,,,,,
 ,,D#5 1,,,,,,,,,,,
@@ -188,10 +188,10 @@
 -----,,D#6 1,G#5 2,,,,fm_depth 0,,,,snare,,
 ,,D#6 1,,,,,,,,kick,,,
 ,,D#6 1,,,,,,,,,,,
---,,F#6 3,G#5 2,F#5 3,,,fm_depth 1,,Volume 70; fm on; sine off,,snare,,
+--,,F#6 3,G#5 2,F#5 3,,,fm_depth 1,,Volume 90,,snare,,
 ,,,,,,,fm_depth 3,,,,,,
 ,,,,,,,fm_depth 5,,fm_depth 10; fm_frequency 70,kick,,,
-LYRICS,D#3 10,,G#5 2,,,sine off; square on; volume 80,fm_depth 0,Volume 10,Volume 50; fm on; sine off,kick,kick,cymbal,
+LYRICS,D#3 10,,G#5 2,,,sine off; square on; volume 80,fm_depth 0,Volume 10,Volume 80; fm on; sine off,kick,kick,cymbal,
 ,,,,,,,,,,,,,
 ,,,,,,,fm_depth 0,,,,,,
 --,,,G#5 2,,,,fm on,,,,,,hat
@@ -280,14 +280,14 @@ LYRICS,D#3 10,,G#5 2,,,sine off; square on; volume 80,fm_depth 0,Volume 10,Volum
 ,,,,,,,,,,,,,
 --,,,G#5 2,,,,,,,kick,,,hat
 ,,,,,,,,,,,,,
-,,,,,,,fm_frequency 0.75; fm on,,,,,,
+,,,,,,,,,,,,,
 -----,,D#6 1,G#5 2,,,,fm_depth 0,,,,snare,,
 ,,D#6 1,,,,,,,,,,,
 ,,D#6 1,,,,,,,,kick,,,
 --,F#3 3,F#6 3,G#5 2,F#5 3,,,fm_depth 1,,Volume 70; fm on; sine off,,,,
 ,,,,,,,fm_depth 3,,,,,,hat
 ,,,,,,,fm_depth 5,,,kick,,,hat
-end,D#3 10,,,,,sine off; square on; volume 80,fm_depth 0,Volume 10,Volume 50; fm on; sine off,kick,,,
+end,D#3 10,,,,,sine off; square on; volume 80,fm_depth 0,Volume 50,Volume 70; fm on; sine off,kick,,,
 ,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
 --,,,G#5 2,,,,,,,kick,,,
@@ -311,7 +311,7 @@ end,D#3 10,,,,,sine off; square on; volume 80,fm_depth 0,Volume 10,Volume 50; fm
 --,,F#4 3,D#5 2,,,,,,fm_frequency 1.5; fm_depth 1,kick,,,
 ,,,,,,,,,fm_depth 2,,,,
 ,,,F#5 1,,,,,,fm_depth 3,,,,
-####,D#3 10,,,G#5 2,,,,,fm off; sine on; volume 30,kick,,,
+####,D#3 10,,,G#5 2,,,,,fm off; sine on; volume 50,kick,,,
 ,,,,,,,,,,,,,
 ,,,,,,,,,,,,,
 --,,,G#5 2,G#5 2,,,,,,kick,,,
@@ -331,7 +331,7 @@ end,D#3 10,,,,,sine off; square on; volume 80,fm_depth 0,Volume 10,Volume 50; fm
 ,,F#4 1,F#5 1,,,,,,,,,tom2,
 -----,,G#4 3,G#5 2,F#5 2,,,,,,kick,tom3,,
 ,,,,,,,,,,,,,
-,,,F#5 1,,,,,,,,,,
+,,,F#5 1,,,,,,sine off; fm on,,,,
 --,,F#4 3,D#5 2,F#5 2,,,,,fm_frequency 1.5; fm_depth 1,kick,,tom2,
 ,,,,,,,,,fm_depth 2,,,,
 ,,,F#5 1,,,,,,fm_depth 3,,,,tom1
@@ -380,7 +380,8 @@ end,D#3 10,,,,,sine off; square on; volume 80,fm_depth 0,Volume 10,Volume 50; fm
 -----,,G#4 3,G#5 2,D#6 1,,,fm_depth 0,,,kick,tom3,snare,
 ,,,,D#6 1,,,,,,,,,
 ,,,F#5 1,D#6 1,,,,,,,,,
---,F#3 3,F#4 3,D#5 2,F#6 3,,,,,Volume 70; fm on; sine off,kick,tom3,tom2,tom1
+--,F#3 3,F#4 3,D#5 2,F#6 3,,,,,Volume 90; fm on; sine on,kick,tom3,tom2,tom1
 ,,,,,,,,,,,,,
-,,,,,,,,,,,,,
-####,,,,,,,,,,cymbal,cymbal,cymbal,cymbal
+,,,,,,Volume 100,Volume 100,Volume 100,Volume 100,,,,
+####,D#3 10,D#3 10,D#3 10,D#3 10,,square on; sq_filter off,square on; sq_filter off,square on; sq_filter off,square on; sq_filter off,cymbal,cymbal,cymbal,cymbal
+,,,,,,Release_time 1000,Release_time 1000,Release_time 1000,Release_time 1000,,,,
