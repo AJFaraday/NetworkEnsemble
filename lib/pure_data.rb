@@ -53,7 +53,8 @@ class PureData
     'tom2',
     'tom3',
     'bells',
-    'beep'
+    'beep',
+    'cymbal'
   ]
 
   attr_accessor :connections
